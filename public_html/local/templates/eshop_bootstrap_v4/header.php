@@ -194,17 +194,16 @@ $curPage = $APPLICATION->GetCurPage(true);
 			<?if ($curPage != SITE_DIR."index.php"):?>
 				<div class="row mb-4">
 					<div class="col" id="navigation">
-						<?$APPLICATION->IncludeComponent(
-							"bitrix:breadcrumb",
-							"universal",
-							array(
-								"START_FROM" => "0",
-								"PATH" => "",
-								"SITE_ID" => "-"
-							),
-							false,
-							Array('HIDE_ICONS' => 'Y')
-						);?>
+						<?$APPLICATION->IncludeComponent("bitrix:breadcrumb", "universal_custom", Array(
+	"START_FROM" => "0",	// Номер пункта, начиная с которого будет построена навигационная цепочка
+		"PATH" => "",	// Путь, для которого будет построена навигационная цепочка (по умолчанию, текущий путь)
+		"SITE_ID" => "-",	// Cайт (устанавливается в случае многосайтовой версии, когда DOCUMENT_ROOT у сайтов разный)
+	),
+	false,
+	array(
+	"HIDE_ICONS" => "N"
+	)
+);?>
 					</div>
 				</div>
 				<h1 id="pagetitle"><?$APPLICATION->ShowTitle(false);?></h1>
