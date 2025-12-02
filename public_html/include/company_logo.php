@@ -1,1 +1,1 @@
-<img src="/include/logo.png"  srcset="/include/logo_retina.png" />
+<img width="500" src="/upload/Logo-Test.png" height="200">
